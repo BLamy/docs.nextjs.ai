@@ -63,14 +63,16 @@ If all inputs are valid then you should perform the action described in the Prom
 ```
 
 ## Compiling prompts
-<Callout type="info" emoji="ℹ️">
-  When TypeScript files are compiled into GPT prompts, several optimizations are performed:
-  - The preamble is added to the prompt.
-  - To save token space:
-    1) The `export` keyword is removed from the prompt.
-    2) The `// ` comment character is removed from the prompt.
-    3) The `zod` import statement is removed from the prompt.
-  - If errors are not defined, the default error union type is added at the end.
+When TypeScript files are compiled into GPT prompts, several optimizations are performed:
+- The preamble is added to the prompt.
+- To save token space:
+  1) The `export` keyword is removed from the prompt.
+  2) The `// ` comment character is removed from the prompt.
+  3) The `zod` import statement is removed from the prompt.
+- If errors are not defined, the default error union type is added at the end.
+
+<Callout type="warning" emoji="⚠️">
+If it doesn't seem like your prompts are updating, try stoping `pnpm run dev` and running `pnpm run dev` again.
 </Callout>
 
 ## Errors

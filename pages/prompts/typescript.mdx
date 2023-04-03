@@ -31,7 +31,7 @@ let messages: ChatCompletionRequestMessage[] = [
 It is best to feed typesafe prompts as a system message, followed immediately by a user message.
 You can import types directly from typesafe prompts to use in your application code, as they are valid TypeScript.
 ```typescript filename="./src/app/api/assistant.ts"
-import { Input as NumberGeneratorInput } from './prompts/NumberGenerator.Prompt.ts'
+import { Input as NumberGeneratorInput } from '@/ai/prompts/NumberGenerator.Prompt.ts'
 
 const input: NumberGeneratorInput = { min: 1, max: 100 };  
 

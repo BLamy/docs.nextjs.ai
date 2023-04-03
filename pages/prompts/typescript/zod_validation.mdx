@@ -22,7 +22,7 @@ export type Errors = "max must be greater than min" | "json parse error" | "zod 
 This will allow you to double check the inputs and outputs at runtime.  
 
 ```typescript filename="./src/app/api/NumberGenerator.ts"
-import { inputSchema, outputSchema } from './prompts/NumberGenerator.Prompt';
+import { inputSchema, outputSchema } from '@/ai/prompts/NumberGenerator.Prompt';
 
 export const config = {
   runtime: 'edge'

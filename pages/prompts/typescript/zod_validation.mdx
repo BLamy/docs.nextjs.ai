@@ -21,8 +21,8 @@ export type Errors = "max must be greater than min" | "json parse error" | "zod 
 
 This will allow you to double check the inputs and outputs at runtime.  
 
-```typescript filename="./src/app/api/assistant.ts"
-import { inputSchema, outputSchema } from './prompts/JokeGenerator.Prompt';
+```typescript filename="./src/app/api/NumberGenerator.ts"
+import { inputSchema, outputSchema } from './prompts/NumberGenerator.Prompt';
 
 export const config = {
   runtime: 'edge'
@@ -36,7 +36,7 @@ export default async function handler(req: Request) {
     messages: [
       {
       role: "system",
-      content: process.env.JokeGeneratorPrompt,
+      content: process.env.NumberGeneratorPrompt,
       },
       {
         role: "user",

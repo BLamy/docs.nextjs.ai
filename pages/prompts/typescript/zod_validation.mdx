@@ -21,7 +21,7 @@ export type Errors = "max must be greater than min" | "json parse error" | "zod 
 
 This will allow you to double check the inputs and outputs at runtime.  
 
-```typescript filename="./src/ai/Assistant.ts"
+```typescript filename="./src/app/api/assistant.ts"
 import { inputSchema, outputSchema } from './prompts/JokeGenerator.Prompt';
 
 export const config = {

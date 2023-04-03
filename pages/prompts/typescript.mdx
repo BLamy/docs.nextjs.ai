@@ -23,7 +23,7 @@ import { ChatCompletionRequestMessage } from "openai";
 let messages: ChatCompletionRequestMessage[] = [
   {
     role: "system",
-    content: process.env.NumberGenerator as string,
+    content: process.env.NumberGeneratorPrompt as string,
   }
 ];
 ```

@@ -37,7 +37,16 @@ const input: NumberGeneratorInput = { min: 1, max: 100 };
 
 // When using typesafe prompts the first request sent to chat completion should have both 
 // A system message and the user input fed in as a user message.
-messages.push({ role: "user", content: JSON.stringify(input) });
+messages = [
+  {
+    role: "system",
+    content: process.env.NumberGeneratorPrompt as string,
+  },
+  { 
+    role: "user", 
+    content: JSON.stringify(input) 
+  }
+];
 
 ```
 

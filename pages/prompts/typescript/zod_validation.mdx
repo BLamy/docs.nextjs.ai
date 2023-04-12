@@ -57,6 +57,10 @@ If either the input or output is invalid, the request will fail with a 400 error
 </Callout>
 
 
+## Reflection using Zod Errors
+Defining an output using Zod doesn't always work perfectly on 3.5-Turbo but if you safeParse the output and then feed the error back in so GPT can reflect on its mistake it will often come up with the right solution when given a 2nd chance.
+![Reflection using Zod Errors](../../../public/zod-error-reflection.png)
+
 ### Example
 ```typescript filename="./src/ai/prompts/JokeGenerator.Prompt.ts"
 // ### Examples

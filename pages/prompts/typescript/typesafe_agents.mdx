@@ -19,7 +19,7 @@ export type Tools = { tool: "calculator"; args: { equation: string } };
 ## Tools Preamble
 The preamble is slightly modified when tools are added to a prompt.
 
-```diff filename="The Preamble"
+```diff filename="@/ai/prompts/preambles/tools.turbo.Prompt.ts"
 You will function as a JSON api
 The user will feed you valid JSON and you will return valid JSON, do not add any extra characters to the output that would make your output invalid JSON
 

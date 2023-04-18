@@ -5,6 +5,9 @@ Zod is a typescript library that allows you to define a schema for your types.
 The difference between zod and typescript is that zod allows you to validate data at runtime instead of just providing static analysis a build time.
 Zod will also allow you to make assertions that are difficult to make in typescript such as number max and mins. 
 ```typescript filename="./src/ai/prompts/NumberGenerator.Prompt.ts"
+require('@/ai/prompts/preambles/basic.turbo.Prompt.ts');
+require('@/ai/prompts/examples/NumberGenerator.Examples.json');
+
 import { z } from 'zod';
 const inputSchema = z.object({
   min: z.number().min(1).max(100),
@@ -63,15 +66,9 @@ Defining an output using Zod doesn't always work perfectly on 3.5-Turbo but if y
 
 ### Example
 ```typescript filename="./src/ai/prompts/JokeGenerator.Prompt.ts"
-// ### Examples
-// USER: { "count": 3, "jokeType": "funny" }
-// ASSISTANT: [
-//   { "setup": "Why did the tomato turn red?", "punchline": "Because it saw the salad dressing!", "explanation": "This is a funny joke because of the pun in salad dressing."  },
-//   { "setup": "Why did the scarecrow win an award?", "punchline": "Because he was outstanding in his field.", "explanation": "This is a funny joke because of the pun on the word field."  },
-//   { "setup": "Why don't scientists trust atoms?", "punchline": "Because they make up everything.", "explanation": "This is a funny joke because atoms are the basic building block for everything and therefore there is a pun for making everything up"  }
-// ]
+require('@/ai/prompts/preambles/basic.turbo.Prompt.ts');
+require('@/ai/prompts/examples/JokeGenerator.Examples.json');
 
-// ### Typescript
 import { z } from 'zod';
 
 const jokeTypeSchema = z.union([

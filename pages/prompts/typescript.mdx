@@ -11,6 +11,9 @@ To create a Typesafe prompt, you need a TypeScript file that exports at least th
 3) Output - The output data type that must strictly match.
 
 ```typescript filename="./src/ai/prompts/NumberGenerator.Prompt.ts"
+require('@/ai/prompts/preambles/basic.turbo.Prompt.ts');
+require('@/ai/prompts/examples/NumberGenerator.Examples.json');
+
 export type Prompt = "Can you tell me a number between {{min}} and {{max}}?"
 export type Input = { min: number, max: number }
 export type Output = { result: number }
@@ -71,6 +74,12 @@ Your goal is to act as a prepared statement for LLMs The user will feed you some
 If all inputs are valid then you should perform the action described in the Prompt and return the result in the format described by the Output type
 ```
 
+## Errors
+Typesafe prompts can define a union type for error classification. If no errors are specified, the default error type is used:
+```typescript filename="default error union"
+type Errors = "invalidJson" | "invalidInput" | "invalidOutput" | "invalidTool" | "invalidToolInput" | "invalidToolOutput" | "toolError" | "unknownError";
+```
+
 ## Compiling prompts
 When TypeScript files are compiled into GPT prompts, several optimizations are performed:
 - The preamble is added to the prompt.
@@ -83,26 +92,16 @@ When TypeScript files are compiled into GPT prompts, several optimizations are p
 If it doesn't seem like your prompts are updating, try stoping `pnpm run dev` and running `pnpm run dev` again.
 </Callout>
 
-## Errors
-Typesafe prompts can define a union type for error classification. If no errors are specified, the default error type is used:
-```typescript filename="default error union"
-type Errors = "invalidJson" | "invalidInput" | "invalidOutput" | "invalidTool" | "invalidToolInput" | "invalidToolOutput" | "toolError" | "unknownError";
-```
-
 ## Few Shot Training
-Few shot examples can be added in a comment at the top of the typescript file. 
-```typescript filename="./src/ai/prompts/NumberGenerator.Prompt.ts"
-// ### Examples
-// USER: { "min": 1, "max": 100 }
-// ASSISTANT: { "result": 42 }
-// USER: { "min": 1, "max": 100 }
-// ASSISTANT: { "result": 69 }
-// USER: { "min": 100, "max": 1 }
-// ASSISTANT: { "error": { "type": "InvalidInput", "msg": "min must be less than max" } }
-// 
-// ### Typescript
-export type Prompt = "Can you tell me a number between {{min}} and {{max}}?"
-export type Input = { min: number, max: number }
-export type Output = { result: number }
+A json file can be created inside of the `src/ai/prompts/examples` folder to provide examples for a prompt.
+```typescript filename="./src/ai/prompts/NumberGenerator.Examples.json"
+[
+    {"role":"user","content":"{ \"min\": 1, \"max\": 100}"},
+    {"role":"assistant","content":"{ \"result\": 42}"},
+    {"role":"user","content":"{ \"min\": 1, \"max\": 100}"},
+    {"role":"assistant","content":"{ \"result\": 69}"},
+    {"role":"user","content":"{ \"min\": 100, \"max\": 1}"},
+    {"role":"assistant","content":"{ \"error\":{ \"type\": \"InvalidInput\", \"msg\": \"min must be less than max\"}}"}
+]
 ```
   

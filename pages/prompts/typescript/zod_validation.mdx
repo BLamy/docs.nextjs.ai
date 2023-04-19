@@ -5,7 +5,7 @@ Zod is a typescript library that allows you to define a schema for your types.
 The difference between zod and typescript is that zod allows you to validate data at runtime instead of just providing static analysis a build time.
 Zod will also allow you to make assertions that are difficult to make in typescript such as number max and mins. 
 ```typescript filename="./src/ai/prompts/NumberGenerator.Prompt.ts"
-import '@/ai/prompts/preambles/basic.turbo.Prompt.ts';
+import '@/ai/prompts/preambles/basic.turbo.Prompt.txt';
 import '@/ai/prompts/examples/NumberGenerator.Examples.json';
 
 import { z } from 'zod';
@@ -66,7 +66,7 @@ Defining an output using Zod doesn't always work perfectly on 3.5-Turbo but if y
 
 ### Example
 ```typescript filename="./src/ai/prompts/JokeGenerator.Prompt.ts"
-import '@/ai/prompts/preambles/basic.turbo.Prompt.ts';
+import '@/ai/prompts/preambles/basic.turbo.Prompt.txt';
 import '@/ai/prompts/examples/JokeGenerator.Examples.json';
 
 import { z } from 'zod';

@@ -19,7 +19,7 @@ export type Tools = { tool: "calculator"; args: { equation: string } };
 ## Tools Preamble
 The preamble is slightly modified when tools are added to a prompt.
 
-```diff filename="@/ai/prompts/preambles/tools.turbo.Prompt.ts"
+```diff filename="@/ai/prompts/preambles/tools.turbo.Prompt.txt"
 You will function as a JSON api
 The user will feed you valid JSON and you will return valid JSON, do not add any extra characters to the output that would make your output invalid JSON
 
@@ -42,7 +42,7 @@ If all inputs are valid then you should perform the action described in the Prom
 
 ## Tool Example
 ```typescript filename="./src/ai/prompts/NFLScores.Prompt.ts"
-import '@/ai/prompts/preambles/tools.turbo.Prompt.ts';
+import '@/ai/prompts/preambles/tools.turbo.Prompt.txt';
 import '@/ai/prompts/examples/NFLScores.Examples.json';
 
 type NFLTeams = "Cardinals" | "Falcons" | "Ravens" | "Bills" | "Panthers" | "Bears" | "Bengals" | "Browns" | "Cowboys" | "Broncos" | "Lions" | "Packers" | "Texans" | "Colts" | "Jaguars" | "Chiefs" | "Dolphins" | "Vikings" | "Patriots" | "Saints" | "Giants" | "Jets" | "Raiders" | "Eagles" | "Steelers" | "Chargers" | "49ers" | "Seahawks" | "Rams" | "Buccaneers" | "Titans" | "Commanders";

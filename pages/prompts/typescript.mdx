@@ -11,7 +11,7 @@ To create a Typesafe prompt, you need a TypeScript file that exports at least th
 3) Output - The output data type that must strictly match.
 
 ```typescript filename="./src/ai/prompts/NumberGenerator.Prompt.ts"
-import '@/ai/prompts/preambles/basic.turbo.Prompt.ts';
+import '@/ai/prompts/preambles/basic.turbo.Prompt.txt';
 import '@/ai/prompts/examples/NumberGenerator.Examples.json';
 
 export type Prompt = "Can you tell me a number between {{min}} and {{max}}?"
@@ -56,7 +56,7 @@ messages = [
 ## The Preamble
 When typesafe prompts are built, a preamble is added at the beginning of the prompt.
 
-```text filename="@/ai/prompts/preambles/basic.turbo.Prompt.ts"
+```text filename="@/ai/prompts/preambles/basic.turbo.Prompt.txt"
 You will function as a JSON api
 The user will feed you valid JSON and you will return valid JSON do not add any extra characters to the output that would make your output invalid JSON
 

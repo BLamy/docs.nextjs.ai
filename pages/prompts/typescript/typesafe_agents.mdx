@@ -42,8 +42,8 @@ If all inputs are valid then you should perform the action described in the Prom
 
 ## Tool Example
 ```typescript filename="./src/ai/prompts/NFLScores.Prompt.ts"
-require('@/ai/prompts/preambles/tools.turbo.Prompt.ts');
-require('@/ai/prompts/examples/NFLScores.Examples.json');
+import '@/ai/prompts/preambles/tools.turbo.Prompt.ts';
+import '@/ai/prompts/examples/NFLScores.Examples.json';
 
 type NFLTeams = "Cardinals" | "Falcons" | "Ravens" | "Bills" | "Panthers" | "Bears" | "Bengals" | "Browns" | "Cowboys" | "Broncos" | "Lions" | "Packers" | "Texans" | "Colts" | "Jaguars" | "Chiefs" | "Dolphins" | "Vikings" | "Patriots" | "Saints" | "Giants" | "Jets" | "Raiders" | "Eagles" | "Steelers" | "Chargers" | "49ers" | "Seahawks" | "Rams" | "Buccaneers" | "Titans" | "Commanders";
 
